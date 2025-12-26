@@ -1,0 +1,3 @@
+Name: Ekansh Tyagi
+College: IIITM Gwalior
+Fun Fact/Story: I finally escaped Arrays loop in DSA.
