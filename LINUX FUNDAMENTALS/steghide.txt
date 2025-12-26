@@ -1,0 +1,59 @@
+Description:
+steghide is a steganography tool used in Linux/Unix to hide and extract secret data inside image or audio files.
+It is commonly used in CTFs and cybersecurity challenges to conceal flags within media files such as .jpg, .png, .bmp, .wav, etc.
+
+It supports optional encryption and compression, making hidden data harder to detect.
+
+Common steghide file roles:
+
+Role	Meaning
+Cover file	Image or audio file used to hide data
+Embedded file	File that is hidden inside the cover
+Stego file	Final file containing hidden data
+Useful Flags in steghide:
+1. embed → Hide data
+steghide embed -cf image.jpg -ef secret.txt
+
+
+Hides secret.txt inside image.jpg.
+Prompts for a passphrase unless specified.
+
+2. extract → Extract hidden data
+steghide extract -sf image.jpg
+
+
+Extracts hidden data from the stego file.
+Most commonly used command during CTFs.
+
+3. info → Check for hidden data
+steghide info image.jpg
+
+
+Displays information about embedded data such as size, encryption, and compression.
+Useful before attempting extraction.
+
+4. -p → Passphrase
+steghide extract -sf image.jpg -p password123
+
+
+Provides the passphrase directly instead of interactive input.
+Helpful for automation or brute-force attempts.
+
+5. -f → Force overwrite
+steghide extract -sf image.jpg -f
+
+
+Overwrites existing extracted files without prompting.
+Useful when retrying multiple times.
+
+6. -v → Verbose
+steghide extract -sf image.jpg -v
+
+
+Shows detailed execution output for debugging and analysis.
+
+7. --help
+steghide --help
+
+
+Displays help text and all available options for the command.
