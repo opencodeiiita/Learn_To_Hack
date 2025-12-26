@@ -1,3 +1,3 @@
 Name: BEESA MANISH
 College: MLRIT
-Fun Fact/Story: In online editor i once wrote java code while selecting the compiler as c++.
+Fun Fact/Story: In online editor i once wrote java code while selecting the compiler as C++. 

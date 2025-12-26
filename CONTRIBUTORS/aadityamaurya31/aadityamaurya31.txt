@@ -1,0 +1,3 @@
+Name: Aaditya Maurya
+College: IIIT Allahabad
+Fun Fact/Story: I once wrote code that compiled on the first try!
