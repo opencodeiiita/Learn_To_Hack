@@ -1,0 +1,36 @@
+grep — Global Regular Expression Print
+
+DESCRIPTION
+The grep command is a powerful utility used to search for specific patterns of text within files. It reads lines from one or more input files and outputs only those lines that match the provided pattern. It is one of the most widely used tools for text processing and log analysis in Linux.
+
+COMMON FLAGS
+-i : Performs a case-insensitive search.
+-v : Inverts the match, displaying lines that do not match the pattern.
+-r : Searches directories recursively.
+-n : Displays the line number along with the matching line.
+-l : Prints only the names of files that contain the match.
+-c : Counts the number of matching lines instead of displaying them.
+-w : Matches the whole word only.
+
+PRACTICAL EXAMPLES
+
+1. Search for a specific string in a file:
+   grep "search_term" file.txt
+
+2. Case-insensitive search in a file:
+   grep -i "Search_Term" file.txt
+
+3. Recursive search across all files in a directory:
+   grep -r "pattern" /path/to/directory/
+
+4. Search for lines that do not contain a specific word:
+   grep -v "exclude_this" file.txt
+
+5. Count the number of matches for a term:
+   grep -c "term" file.txt
+
+6. Find a pattern and display the line number:
+   grep -n "error" logfile.log
+
+7. Search for a whole word only:
+   grep -w "user" file.txt
