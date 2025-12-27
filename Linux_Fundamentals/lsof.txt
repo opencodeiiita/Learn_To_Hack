@@ -1,0 +1,26 @@
+COMMAND: lsof (List Open Files)
+
+DESCRIPTION:
+Lists information about files opened by processes. Since "everything is a file" in Linux (including network sockets, pipes, and devices), this is the best tool to see what processes are actually doing or listening on the network.
+
+COMMON FLAGS:
+-i          : Lists IP sockets (network connections). Essential for checking active ports.
+-n          : Inhibits conversion of network numbers to host names (makes output faster).
+-P          : Inhibits conversion of port numbers to service names (e.g., shows '80' instead of 'http').
+-u [user]   : Lists files opened by a specific user.
+-p [pid]    : Lists files opened by a specific process ID.
++D [dir]    : recursively search for open instances of a directory.
+
+USEFUL EXAMPLES:
+
+1. See all active network connections (fast mode):
+   lsof -i -n -P
+
+2. Find out what process is using a specific port (e.g., port 80):
+   lsof -i :80
+
+3. See what files a specific user has open:
+   lsof -u username
+
+4. See every file/library a specific process is touching:
+   lsof -p 1234
