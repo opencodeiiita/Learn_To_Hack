@@ -1,0 +1,7 @@
+**pwd (Print Working Directory)**:-
+**Description**
+The pwd command displays the full absolute path of the directory you are currently in. It helps you know your exact location in the Linux file system.
+**Flags**
+1.pwd(no flag)-Prints the current working directory.
+2.-L (Logical path) — Shows the logical path, including symbolic links, as stored in the shell.If you entered a directory via a symlink, it will show the symlink path.
+3.-P (Physical path)- Shows the real, physical path by resolving all symbolic links.Useful when working with symlinks and you want the actual directory location.
