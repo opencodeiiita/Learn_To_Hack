@@ -1,0 +1,105 @@
+curl (transfer data to/from servers)
+
+Description:
+  curl is a command-line tool for transferring data over network protocols.
+  In practice, it is most often used for HTTP/HTTPS: downloading files,
+  calling APIs, and inspecting requests and responses.
+
+Usage:
+  curl [OPTIONS] URL
+
+  curl has many options. This sheet focuses on common, practical ones.
+
+Output / downloads:
+  -o, --output <file>
+    Save the response body to a specific file name.
+    Example: curl -o page.html https://example.com
+
+  -O, --remote-name
+    Save using the remote file name (derived from the URL path).
+    Example: curl -O https://example.com/file.zip
+
+  -L, --location
+    Follow HTTP redirects.
+    Example: curl -L https://example.com
+
+HTTP inspection:
+  -I, --head
+    Fetch headers only (send an HTTP HEAD request).
+    Example: curl -I https://example.com
+
+  -i, --include
+    Include response headers in the output.
+
+Requests (methods, headers, bodies):
+  -X, --request <method>
+    Set the HTTP method (GET, POST, PUT, PATCH, DELETE, ...).
+    Example: curl -X DELETE https://api.example.com/item/123
+
+  -H, --header <header>
+    Add a request header.
+    Example: curl -H "Authorization: Bearer <token>" https://api.example.com/me
+
+  -d, --data <data>
+    Send request body data. Commonly used for form-style payloads.
+    (Often implies POST if -X is not specified.)
+    Example: curl -d "name=alice&role=admin" https://api.example.com/users
+
+  --data-urlencode <data>
+    Like --data, but URL-encodes the value; useful for special characters.
+    Example: curl --data-urlencode "q=a+b" https://api.example.com/search
+
+  -F, --form <name=content>
+    Submit multipart/form-data (typical for file uploads).
+    Example: curl -F "file=@report.pdf" https://api.example.com/upload
+
+Authentication:
+  -u, --user <user:password>
+    Use HTTP Basic authentication.
+    Example: curl -u user:pass https://example.com/private
+
+Console output and failure behavior:
+  -s, --silent
+    Suppress progress meter and most messages.
+
+  -S, --show-error
+    When used with -s, still show errors.
+    Example: curl -sS https://example.com
+
+  -f, --fail
+    Treat HTTP errors as failures (non-zero exit; body may be suppressed).
+
+Debugging:
+  -v, --verbose
+    Show request/response details (useful for HTTP/TLS troubleshooting).
+
+Timeouts / retries:
+  --retry <num>
+    Retry up to <num> times on transient failures.
+
+  --connect-timeout <seconds>
+    Maximum time allowed for the connection phase.
+
+  -m, --max-time <seconds>
+    Maximum time allowed for the entire transfer.
+
+TLS/HTTPS (use carefully):
+  -k, --insecure
+    Skip TLS certificate verification. Avoid in production.
+
+  --cacert <file>
+    Use a custom CA bundle.
+
+Help/version:
+  --help
+    Show curl help.
+
+  --version
+    Show curl version and supported features.
+
+Examples:
+  curl -sS -L https://example.com
+    Quiet download with errors shown; follows redirects.
+
+  curl -X POST -H "Content-Type: application/json" -d '{"name":"Alice"}' https://api.example.com/users
+    POST JSON to an API endpoint.

@@ -1,0 +1,10 @@
+`ls` is a command that lists all files and folders in the current working directory.
+
+Some flags commonly used alongside `ls`
+
+-> `--all/-a` - lists all files, including hidden files.
+-> `-l` - provides information about each file, such as permissions, owner, size, time of last modification, etc.
+-> `-t` - sorts all files by time of modification (newest first).
+-> `-S` - sorts all files and directories by their size (largest first).
+-> `-r` - reverses the order of listing.
+-> `-R` - lists contents recursively, including all the subdirectories.
