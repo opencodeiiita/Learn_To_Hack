@@ -1,0 +1,47 @@
+mv command is use to mv and rename files and folder to one location to another location in your filesystem
+
+mv stands for move(rename) files
+
+Format : mv [option] [flags] Source Destination
+
+
+main work with mv command :
+
+1.Move a file to another directory 
+
+ mv notes.txt Documents/
+ it moves notes.txt from current folder to Documents folder 
+
+
+2.Rename a file 
+ 
+ mv old.txt new.txt
+ it renames old.txt file to new.txt file
+
+
+Flags :(which are worth remembering)  
+1.       -i :interactive(ask before overwrite)
+  Ex. mv -i file.txt Documents/
+  If a file with the same name already exists, it asks:
+     overwrite 'Documents/file.txt'?
+ ---Its good when you don't wanna accidentally replace something valuable ---                         
+
+     
+2.        -f : force(overwrite without asking)
+  Ex. mv -f file.txt Documents/
+  output will be  : 'file.txt' -> 'Documents/file.txt'
+
+
+3.        -n : no-overwrite
+ Ex. mv -n file.txt Documents/
+ if file.txt in present in Documents folder then it will skip it instead of overwriting the file.txt file
+
+4.        -v : verbose(show whats happening)
+ Ex.mv -v f1.txt f2.txt f3.txt Documents/
+ output will be : 
+                 'f1.txt' -> 'Documents/f1.txt'
+                 'f2.txt' -> 'Documents/f2.txt'
+                 'f3.txt' -> 'Documents/f3.txt'
+ 
+
+
