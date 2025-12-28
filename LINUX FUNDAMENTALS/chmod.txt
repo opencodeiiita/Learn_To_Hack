@@ -1,0 +1,36 @@
+chmod Command (Linux)
+Description
+
+The chmod command is used to change the access permissions (mode) of files and directories in Linux.
+It controls who can read, write, or execute a file or directory by assigning permissions to the owner, group, and others.
+
+Permissions can be modified using either numeric (octal) values or symbolic notation.
+1. -R (Recursive)
+
+Applies permission changes recursively to all files and subdirectories inside a directory.
+
+chmod -R 755 project/
+
+2. -v (Verbose)
+
+Displays a message for every file whose permissions are changed.
+
+chmod -v 644 file.txt
+
+3. -c (Changes only)
+
+Shows output only when a permission change actually occurs.
+
+chmod -c 600 secret.txt
+
+4. --reference=FILE
+
+Sets permissions of a file same as another file.
+
+chmod --reference=source.txt target.txt
+
+5. -f (Force)
+
+Suppresses error messages if permissions cannot be changed.
+
+chmod -f 777 restricted_file
