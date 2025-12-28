@@ -1,0 +1,57 @@
+# su stands for "switch user"
+
+# It allows you to change the current user in the terminal
+# By default, it switches to the root user
+
+
+# su
+// switches to root
+// asks for root password
+
+# su username
+// switches to specified user
+// asks for that user's password
+
+
+//COMMON FLAGS//
+
+# su -
+# su -l
+
+// starts a full login shell
+// sets correct HOME, PATH, and variables
+
+
+# su -c "command" username
+
+Ex:
+# su -c "apt update" root
+// runs the command as root and exits immediately
+
+
+
+# su -s /bin/bash
+# su -s /bin/zsh username
+// switches user but uses specified shell
+
+
+
+# -p or -m (preserve environment)
+
+# su -p
+# su -m
+// keeps current environment variables
+
+
+
+# -g GROUP
+# su -g developers user
+// sets primary group
+
+
+# -G GROUPS
+# su -G sudo,admin user
+// sets supplementary groups
+
+
+
