@@ -1,0 +1,23 @@
+Command: strace
+
+Description:
+strace is a Linux diagnostic tool used to trace system calls and signals made by a process It helps understand how a program interacts with the operating system.
+
+Syntax:
+strace [options] command
+
+Useful Flags:
+1. -p: Attaches strace to an already running process using its PID.
+Example: strace -p 1234
+
+2. -e: Filters specific system calls.
+Example: strace -e openat,read ls
+
+3. -o: Writes the output to a file instead of the terminal.
+Example: strace -o output.txt ls
+
+4. -f: Traces child processes created by fork().
+Example: strace -f ./program
+
+5. -c: Provides a summary of system calls with time statistics.
+Example: strace -c ls
