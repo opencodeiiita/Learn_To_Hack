@@ -1,0 +1,19 @@
+Command: chmod
+
+Description: chmod is used to change file and directory permissions in Linux. It controls who can read, write or execute a file.
+
+Syntax: chmod [options] mode file
+
+Useful Flags:
+1. +x: Adds execute permissions to a file
+    Eg: chmod +x script.sh
+2. -x: Removes execute permission
+    Eg: chmod -x script.sh
+3. 755: Sets permissions to rwxr-xr-x. Owner can read, write, execute whereas others can   read and execute
+    Example: chmod 755 file
+4. 644: Sets permissions to rw-r--r--. Common for text files.
+    Eg: chmod 644 notes.txt
+5. -R: Applies permission changes recursively to directories.
+    Eg: chmod -R 755 folder
+
+chmod is important for security as it controls access to files and prevents unauthorized execution.
