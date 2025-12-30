@@ -1,0 +1,25 @@
+Flag:
+geek{PASTE_FLAG_HERE}
+
+Command Used:
+grep -o "geek{[^}]*}" file
+
+Explanation:
+The grep command searches for patterns inside files.
+The -o option prints only the matching text.
+The regex extracts the flag format.
+
+Proof:
+Flag:
+geek{PASTE_FLAG_HERE}
+
+Command Used:
+grep -o "geek{[^}]*}" file
+
+Explanation:
+The grep command searches for patterns inside files.
+The -o option prints only the matching text.
+The regex extracts the flag format.
+
+Proof:
+https://drive.google.com/file/d/1ZHWrD9khRinjlD8DqvYRxB3LdlaXYA-a/view?usp=sharing
