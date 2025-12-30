@@ -3,6 +3,18 @@
 
 Welcome to Learn_To_Hack! This repository is dedicated to building a comprehensive, open-source guide/handbook for anyone interested in learning CyberSecurity and participating in Capture The Flag (CTF) competitions.
 
+## 🎯 Who is this for?
+- Beginners interested in cybersecurity
+- Students curious about ethical hacking
+- Anyone who wants to learn security fundamentals
+
+## 🛠️ Topics Covered
+- Basics of hacking
+- Ethical hacking concepts
+- Security fundamentals
+- Learning resources
+
+
 ## 🚩 Project Vision
 
 Our goal is to create a complete, community-driven handbook that covers everything from basic setups and theory to hands-on challenges. The content is organized into topic-based folders, and new topics will be added as the field evolves.
@@ -66,12 +78,8 @@ We welcome and encourage open source contributions! Contributors are asked to wo
 
 - Keep explanations clear, concise, and accurate.
 - Use examples and practical demonstrations where possible.
-- Follow file naming conventions.
-- Be respectful and constructive in your contributions and reviews.
+- Follow file n
 
----
-⭐ If you find this guide helpful, please give the repo a Star! It helps others find these resources.
-
----
-
-Happy hacking and learning! Your contributions help make this the best open-source CyberSecurity handbook for everyone.
+## ⚠️ Disclaimer
+This repository is for **educational purposes only**.
+Do not use the information for illegal activities.
