@@ -1,0 +1,33 @@
+mkdir linux_task2
+# Creates a new directory
+
+cd linux_task2
+# Enters the directory
+
+touch Prashant.txt
+# Creates a file
+
+mv Prashant.txt 22BCS0001.txt
+# Renames the file
+
+cd ..
+# Moves out of directory
+
+rm -r linux_task2
+# Deletes the directory
+
+sudo useradd testuser
+# Creates a new user
+
+groups testuser
+# Shows user groups
+
+sudo usermod -aG sudo testuser
+# Adds user to sudo group
+
+groups testuser
+# Verifies groups
+
+sudo passwd testuser
+# Sets user password
+
