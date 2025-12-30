@@ -1,0 +1,32 @@
+"rm" stands for remove 
+It permanently deletes files or folders from the filesystem.
+
+Basic Syntax:
+    rm [options] file_or_folder
+
+1.To remove single file
+    rm file.txt
+
+2.To remove multiple files at once
+    rm file1.txt file2.txt file3.txt
+
+3.To remove a file with confirmation
+    rm -i file.txt
+the above command ask for the confimation like this 
+    rm: remove regular file 'file.txt'? y
+    
+4.To remove a directory (folder)
+    rm -r myfolder
+
+5.To remove directory with confirmation
+    rm -ri myfolder
+
+6.To delete files using wildcards
+    rm *.txt
+the above command deletes all files with extensions .txt
+
+7. To remove files with spaces in name
+    rm "my file.txt" 
+        or 
+    rm my\ file.txt
+
