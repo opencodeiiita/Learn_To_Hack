@@ -1,0 +1,9 @@
+FLAG: geek{grep_is_good_to_find_things_cEDf1591}
+COMMAND USED: grep -o "geek{[^}]*}" file
+EXPLANATION: grep is a command used to scan files to find matching text.
+             The -o flag is used to print only the matching part and not the whole text.
+	     "geek{...}" is the text we are looking for. [^}] means: match any character except }.
+	     * means repeat the previous task more times. So [^}]* means: match any number of characters until we encounter a }.
+
+Drive link: https://drive.google.com/file/d/1cyk86_Fk12etNlM1aDDZxQeLkGZs89T4/view?usp=sharing
+
