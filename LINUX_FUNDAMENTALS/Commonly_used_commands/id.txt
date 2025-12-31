@@ -1,0 +1,37 @@
+Command: id
+
+Description:
+The id command displays user identity information such as user ID (UID),
+group ID (GID), and group memberships.
+
+This command is crucial during privilege escalation and system enumeration.
+
+Usage:
+id [OPTION]... [USER]
+
+Common Flags:
+
+- -u
+  Displays only the user ID.
+
+- -g
+  Displays only the primary group ID.
+
+- -G
+  Displays all group IDs the user belongs to.
+
+- -n
+  Displays names instead of numeric IDs (used with -u, -g, or -G).
+
+- -r
+  Displays real ID instead of effective ID.
+
+CTF Use Cases:
+- Identify current user privileges
+- Check group-based privilege escalation paths
+- Analyze access control weaknesses
+
+Example:
+id
+id -u
+id -Gn
