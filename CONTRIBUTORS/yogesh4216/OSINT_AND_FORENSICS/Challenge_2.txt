@@ -1,0 +1,13 @@
+Method Used:
+1. Downloaded the image using wget.
+2. Checked metadata using exiftool.
+3. Extracted readable strings from the image.
+4. Analyzed the image visually for hidden clues.
+5. Decoded the extracted encoded text to obtain the flag.
+
+flag
+Flag                            : geek{EveryOne_Loves_Maggi}
+
+
+Screenshot Drive Link:
+https://drive.google.com/drive/folders/1fYxb5qhZ1CPp86ftppY4WmA7e11zkrmy?usp=sharing
