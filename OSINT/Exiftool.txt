@@ -1,0 +1,58 @@
+ExifTool Documentation
+
+What is ExifTool?
+ExifTool is a command-line tool used to read, write, and edit metadata from files. 
+Metadata is hidden information stored inside files such as images, videos, PDFs, and documents.
+This information may include camera details, date and time, GPS location, file type, and more.
+
+ExifTool is widely used in OSINT and digital forensics to analyze files without modifying their content.
+
+What is ExifTool used for?
+ExifTool is used to:
+- View hidden metadata inside images and files
+- Identify camera or device used to capture an image
+- Check date, time, and location information
+- Detect file manipulation or inconsistencies
+- Remove sensitive metadata for privacy
+- Support investigations in OSINT and forensics
+
+What can be done using ExifTool?
+Using ExifTool, we can:
+- Extract metadata from images, videos, and documents
+- Find GPS coordinates from photos
+- Modify or delete metadata
+- Verify file authenticity
+- Analyze suspicious or unknown files
+
+How to use ExifTool (Linux)
+
+1. Install ExifTool
+On Linux, install ExifTool using:
+sudo apt install exiftool
+
+2. View metadata of an image
+Command:
+exiftool image.jpg
+
+This shows all metadata stored in the image such as camera model, date, resolution, and GPS data.
+
+3. View only GPS information
+Command:
+exiftool image.jpg | grep GPS
+
+This helps in OSINT investigations to find location details.
+
+4. Remove all metadata from an image
+Command:
+exiftool -all= image.jpg
+
+This removes all hidden metadata and creates a clean copy of the image.
+
+5. Check metadata of other files (PDF, video, etc.)
+Command:
+exiftool file.pdf
+exiftool video.mp4
+
+Conclusion
+ExifTool is a powerful and simple tool for extracting hidden information from files.
+It plays an important role in OSINT and digital forensics by helping investigators analyze metadata safely and efficiently.
