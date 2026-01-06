@@ -1,37 +1,27 @@
-find — Search for files in a directory hierarchy
+Command: find
 
-DESCRIPTION
-The find command is one of the most powerful and flexible utilities in Linux. it is used to search for files and directories based on various criteria such as name, size, type, permissions, and modification time. Unlike 'locate', find searches the actual file system in real-time, ensuring the results are always up to date.
+Description:
+The find command is used to search for files and directories based on name, type, size, or permissions.
+It is extremely useful in CTFs and system audits to locate sensitive or hidden files.
 
-COMMON FLAGS / CRITERIA
--name  : Search for files by name (case-sensitive).
--iname : Search for files by name (case-insensitive).
--type  : Filter by file type (f for regular file, d for directory, l for symbolic link).
--size  : Search by file size (+ for greater than, - for less than).
--mtime : Search by modification time (in days).
--perm  : Search based on file permissions.
--user  : Find files belonging to a specific user.
--exec  : Perform an action on the files found.
+Useful Flags:
 
-PRACTICAL EXAMPLES
+-name
+Searches files by name.
+Example: find / -name "flag.txt"
 
-1. Find a file by name in the current directory and subdirectories:
-   find . -name "filename.txt"
+-type
+Searches by file type (f = file, d = directory).
+Example: find . -type f
 
-2. Search for all directories in a specific path:
-   find /var/log -type d
+-size
+Searches files by size.
+Example: find / -size +100M
 
-3. Find files larger than 100MB:
-   find / -size +100M
+-perm
+Searches files with specific permissions.
+Example: find / -perm 777
 
-4. Find files modified in the last 7 days:
-   find /home/user -mtime -7
-
-5. Find all .log files and delete them (use with caution):
-   find /tmp -name "*.log" -exec rm {} \;
-
-6. Search for files with specific 777 permissions:
-   find . -perm 777
-
-7. Find files belonging to a specific user:
-   find / -user root
+-exec
+Executes a command on the found files.
+Example: find . -type f -exec cat {} \;
