@@ -1,0 +1,210 @@
+What is StegHide?
+StegHide is a powerful steganography tool that allows you to hide secret data inside image and audio files. 
+Steganography means hiding information within other non-secret data in a way that is not easily detectable. 
+StegHide works with JPEG, BMP, WAV, and AU file formats. It encrypts the hidden data using various encryption 
+algorithms and protects it with a passphrase, making it secure for secret communication.
+
+How StegHide Works?
+StegHide embeds secret data by replacing unnecessary bits in the cover file (image or audio) with bits from 
+your secret message. The changes are so small that the human eye or ear cannot detect them. When you want to 
+retrieve the hidden data, you use the same passphrase to extract it.
+
+Installation
+On Linux/Ubuntu:
+sudo apt-get install steghide
+
+On Windows:
+Download from the official website and install manually.
+
+Basic StegHide Commands and Flags
+
+1. EMBEDDING DATA (Hiding Information)
+Command: steghide embed -cf <cover_file> -ef <secret_file>
+
+Example:
+steghide embed -cf picture.jpg -ef secret.txt
+//This will prompt for a passphrase
+Enter passphrase: ********
+Re-Enter passphrase: ********
+embedding "secret.txt" in "picture.jpg"... done
+
+Explanation: This hides the content of secret.txt inside picture.jpg. You need to remember the passphrase 
+to extract the data later.
+
+Common Flags for Embedding:
+-cf: Cover File (the image/audio file that will hide your data)
+-ef: Embed File (the secret file you want to hide)
+-sf: Stego File (optional - output file name, if not specified, original file is overwritten)
+-p: Passphrase (specify password in command line instead of prompt)
+-e: Encryption type (default is rijndael-128, options: rijndael-128, rijndael-192, rijndael-256, etc.)
+-z: Compression level (1-9, where 9 is best compression)
+
+Example with Multiple Flags:
+steghide embed -cf photo.jpg -ef confidential.txt -sf output.jpg -p "MySecretPass" -e rijndael-256 -z 9
+//Output:
+embedding "confidential.txt" in "photo.jpg"... done
+writing stego file "output.jpg"... done
+
+Explanation: This embeds confidential.txt into photo.jpg, saves the result as output.jpg, uses the 
+password "MySecretPass", applies rijndael-256 encryption, and compresses the data at level 9.
+
+
+2. EXTRACTING DATA (Retrieving Hidden Information)
+Command: steghide extract -sf <stego_file>
+
+Example:
+steghide extract -sf picture.jpg
+//Prompt for passphrase
+Enter passphrase: ********
+wrote extracted data to "secret.txt".
+
+Explanation: This extracts the hidden data from picture.jpg and saves it with its original filename.
+
+Common Flags for Extracting:
+-sf: Stego File (the file containing hidden data)
+-xf: Extract to File (specify output filename for extracted data)
+-p: Passphrase (provide password in command line)
+
+Example with Flags:
+steghide extract -sf hidden_image.jpg -xf recovered_data.txt -p "MySecretPass"
+//Output:
+wrote extracted data to "recovered_data.txt".
+
+Explanation: Extracts hidden data from hidden_image.jpg and saves it as recovered_data.txt using 
+the provided password.
+
+
+3. GETTING FILE INFORMATION
+Command: steghide info <file>
+
+Example:
+steghide info picture.jpg
+//Output:
+"picture.jpg":
+  format: jpeg
+  capacity: 5.8 KB
+Try to get information about embedded data ? (y/n) y
+Enter passphrase: ********
+  embedded file "secret.txt":
+    size: 2.1 KB
+    encrypted: rijndael-128, cbc
+    compressed: yes
+
+Explanation: Shows information about the cover file and any embedded data. You need the passphrase 
+to see details about the hidden content.
+
+Flags for Info:
+-p: Provide passphrase directly
+-sf: Specify stego file (alternative to just providing filename)
+
+Example:
+steghide info picture.jpg -p "MySecretPass"
+//Shows information without prompting for password
+
+
+4. EMBED WITHOUT ENCRYPTION
+Command: steghide embed -cf <cover_file> -ef <secret_file> -e none
+
+Example:
+steghide embed -cf music.wav -ef message.txt -e none -p ""
+//Output:
+embedding "message.txt" in "music.wav"... done
+
+Explanation: Hides data without encryption and without a passphrase (empty password). This is less 
+secure but useful for quick testing.
+
+
+5. CHECK FILE CAPACITY
+Before embedding data, you can check how much data a cover file can hide using the info command:
+
+Example:
+steghide info photo.jpg
+//Output shows:
+capacity: 12.5 KB
+
+Explanation: This tells you the maximum size of data you can hide in this particular image.
+
+
+PRACTICAL DEMONSTRATION
+
+Scenario: Hiding a secret message in an image
+
+Step 1: Create a secret message file
+echo "This is my secret message that no one should see!" > secret_message.txt
+
+Step 2: Choose a cover image (let's say you have family_photo.jpg)
+
+Step 3: Embed the secret message
+steghide embed -cf family_photo.jpg -ef secret_message.txt -sf stego_photo.jpg -p "StrongPassword123"
+//Output:
+embedding "secret_message.txt" in "family_photo.jpg"... done
+writing stego file "stego_photo.jpg"... done
+
+Step 4: Share stego_photo.jpg (it looks exactly like the original photo)
+
+Step 5: Receiver extracts the hidden message
+steghide extract -sf stego_photo.jpg -p "StrongPassword123"
+//Output:
+wrote extracted data to "secret_message.txt".
+
+Step 6: Read the extracted message
+cat secret_message.txt
+//Output:
+This is my secret message that no one should see!
+
+
+IMPORTANT TIPS
+
+1. File Size: The secret file should be smaller than the capacity of the cover file. Check capacity 
+   using "steghide info" command.
+
+2. Password Security: Always use strong passphrases. Without the correct passphrase, data cannot be 
+   extracted.
+
+3. Original Files: Keep backup of original files. By default, StegHide overwrites the cover file 
+   unless you specify -sf flag.
+
+4. Supported Formats: 
+   - Images: JPEG, BMP
+   - Audio: WAV, AU
+   - StegHide does NOT work with PNG files directly
+
+5. Detection: While StegHide is secure, specialized forensic tools can detect the presence of hidden 
+   data through statistical analysis. Use wisely and legally.
+
+
+COMMON USE CASES
+
+1. CTF Challenges: Many Capture The Flag competitions use steganography to hide flags in images
+2. Secure Communication: Send confidential information hidden in innocent-looking photos
+3. Data Exfiltration Detection: Security professionals use it to understand steganography techniques
+4. Digital Watermarking: Embed copyright or ownership information in media files
+
+
+TROUBLESHOOTING
+
+Error: "steghide: the file format of the file 'image.png' is not supported"
+Solution: StegHide doesn't support PNG. Convert to JPEG or BMP first.
+
+Error: "could not extract any data with that passphrase"
+Solution: Wrong password or the file doesn't contain hidden data.
+
+Error: "embedding is impossible because cover file is too short"
+Solution: The cover file is too small. Use a larger image or compress your secret data more.
+
+
+SECURITY NOTES
+
+- StegHide uses strong encryption (Rijndael/AES) to protect embedded data
+- The presence of hidden data is not obvious without specialized analysis
+- Always use this tool ethically and legally
+- Never use steganography for illegal activities
+- In CTF and educational contexts, it's a valuable learning tool for understanding data hiding techniques
+
+
+CONCLUSION
+
+StegHide is an excellent tool for hiding sensitive information within media files. It combines strong 
+encryption with effective data embedding techniques. Whether you're participating in CTF competitions, 
+learning about cybersecurity, or understanding covert communication methods, StegHide is an essential 
+tool in your toolkit. Remember to always use it responsibly and ethically.
