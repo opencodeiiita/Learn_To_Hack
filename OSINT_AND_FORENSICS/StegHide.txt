@@ -1,0 +1,111 @@
+What is StegHide?
+StegHide is a steganography tool used to hide secret data inside image and audio files. It works with 
+JPEG, BMP, WAV, and AU file formats. The tool encrypts hidden data with a passphrase, making it secure 
+for covert communication. It is commonly used in CTF challenges and cybersecurity learning.
+
+Installation:
+Linux: sudo apt-get install steghide
+Windows: Download from official website
+
+Commonly Used StegHide Flags
+
+1. EMBEDDING DATA (Hiding Information)
+Basic Command: steghide embed -cf <cover_file> -ef <secret_file>
+
+Example:
+steghide embed -cf picture.jpg -ef secret.txt
+//Output:
+Enter passphrase: 
+Re-Enter passphrase: 
+embedding "secret.txt" in "picture.jpg"... done
+
+Important Flags:
+-cf: Cover File (image/audio that will hide your data)
+-ef: Embed File (secret file to hide)
+-sf: Stego File (output filename, otherwise overwrites original)
+-p: Passphrase (provide password directly)
+-z: Compression level (1-9, default is 1)
+
+Example with Flags:
+steghide embed -cf photo.jpg -ef secret.txt -sf output.jpg -p "password123"
+//Output:
+embedding "secret.txt" in "photo.jpg"... done
+writing stego file "output.jpg"... done
+
+
+2. EXTRACTING DATA (Retrieving Hidden Information)
+Basic Command: steghide extract -sf <stego_file>
+
+Example:
+steghide extract -sf picture.jpg
+//Output:
+Enter passphrase: 
+wrote extracted data to "secret.txt".
+
+Important Flags:
+-sf: Stego File (file containing hidden data)
+-xf: Extract to specific filename
+-p: Passphrase (provide password directly)
+
+Example with Flags:
+steghide extract -sf output.jpg -xf recovered.txt -p "password123"
+//Output:
+wrote extracted data to "recovered.txt".
+
+
+3. GETTING FILE INFORMATION
+Command: steghide info <file>
+
+Example:
+steghide info picture.jpg
+//Output:
+"picture.jpg":
+  format: jpeg
+  capacity: 5.8 KB
+Try to get information about embedded data ? (y/n) y
+Enter passphrase: 
+  embedded file "secret.txt":
+    size: 2.1 KB
+    encrypted: rijndael-128, cbc
+    compressed: yes
+
+With Passphrase Flag:
+steghide info picture.jpg -p "password123"
+//Shows info without prompting for password
+
+
+PRACTICAL DEMONSTRATION
+
+Scenario: Hiding and extracting a message from an image
+
+Step 1: Create secret message
+echo "Hidden flag: CTF{st3g0_m4st3r}" > flag.txt
+
+Step 2: Embed in image
+steghide embed -cf image.jpg -ef flag.txt -p "mypassword"
+//Output:
+embedding "flag.txt" in "image.jpg"... done
+
+Step 3: Extract hidden data
+steghide extract -sf image.jpg -p "mypassword"
+//Output:
+wrote extracted data to "flag.txt".
+
+Step 4: View extracted content
+cat flag.txt
+//Output:
+Hidden flag: CTF{st3g0_m4st3r}
+
+
+KEY POINTS TO REMEMBER
+
+1. Supported Formats: JPEG, BMP, WAV, AU (PNG is NOT supported)
+2. Capacity: Use "steghide info" to check how much data you can hide
+3. Passphrase: Required for extraction, choose strong passwords
+4. Default Behavior: Overwrites original file unless -sf is used
+5. Use Cases: CTF challenges, secure communication, forensics practice
+
+Common Errors:
+- "file format not supported": File must be JPEG/BMP/WAV/AU
+- "could not extract data": Wrong passphrase or no hidden data
+- "cover file too short": Image too small for data size
