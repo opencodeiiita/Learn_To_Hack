@@ -1,0 +1,9 @@
+Command: diff
+Description: Compares the contents of two files line by line and outputs the differences. It is widely used to generate patches or analyze changes between file versions.
+
+Flags:
+1. -u : Output the differences in "Unified" format, which provides context for changes and is the standard format for patch files.
+2. -i : Ignore case differences in file contents (treats 'A' and 'a' as the same).
+3. -w : Ignore all white space (spaces and tabs) when comparing lines.
+4. -r : Recursively compare any subdirectories found (useful when comparing two directories).
+5. -q : Report only when files differ, without showing the detailed differences (brief mode).
