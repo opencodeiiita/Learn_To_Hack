@@ -1,0 +1,33 @@
+mkdir mydir
+# Creates a new directory named mydir
+
+cd mydir
+# Enters the directory mydir
+
+touch your_name.txt
+# Creates a new empty file named your_name.txt
+
+mv your_name.txt your_roll_no.txt
+# Renames the file to your_roll_no.txt
+
+cd ..
+# Moves one level up from the current directory
+
+rm -r mydir
+# Deletes the directory mydir and its contents
+
+sudo adduser newusername
+# Creates a new user named newusername
+
+groups newusername
+# Displays the groups newusername belongs to
+
+sudo usermod -aG sudo newusername
+# Adds newusername to the sudo group (use wheel group on Arch/Fedora)
+
+groups newusername
+# Displays updated groups for newusername
+
+sudo passwd newusername
+# Sets a password for newusername
+
