@@ -1,0 +1,7 @@
+Name: Deepali Kumari
+GitHub Username: deepali-kumari-iitp
+College: IIT Patna
+Branch: B.Sc. Computer Science and Data Analytics
+Year: 2nd Year
+Interests: Web Development, Machine Learning, Open Source
+Fun Fact: I love learning by building real-world projects.
