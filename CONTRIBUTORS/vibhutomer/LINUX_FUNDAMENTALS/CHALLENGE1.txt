@@ -1,0 +1,9 @@
+1. The Flag:
+geek{grep_is_good_to_find_things_cEdF1591}
+
+2. The Command:
+grep "geek{" file
+# I used grep to filter through the downloaded file and find the string starting with the flag format.
+
+3. Proof:
+https://drive.google.com/file/d/1r0f3REJs3rfBH__XeOZx7xEaiyirQsBp/view?usp=sharing
