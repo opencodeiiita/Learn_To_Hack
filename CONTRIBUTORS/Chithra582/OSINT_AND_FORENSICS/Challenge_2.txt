@@ -1,0 +1,8 @@
+Method Used:
+1. Downloaded the image using wget:
+   wget http://172.235.27.150/CICADA_IS_COMING.png
+2. Inspected the file for hidden text using:
+   strings CICADA_IS_COMING.png | less
+3. Located the flag in the output: geek{EveryOne_Loves_Maggi}
+
+screenshot of drive link:  https://drive.google.com/file/d/1huky6klP2cxbWvNjzQ0SRMA8IvfuaJLH/view?usp=sharing
