@@ -1,0 +1,32 @@
+mkdir temp_directory
+# Creates a new directory named "temp_directory"
+
+cd temp_directory
+# Changes the current working directory to "temp_directory"
+
+touch my_name.txt
+# Creates an empty file named "my_name.txt"
+
+mv my_name.txt my_roll_no.txt
+# Renames the file "my_name.txt" to "my_roll_no.txt"
+
+cd ..
+# Moves one level up out of the current directory
+
+rm -r temp_directory
+# Deletes the "temp_directory" and its contents
+
+sudo adduser test_user
+# Creates a new user named "test_user" on the system
+
+groups test_user
+# Displays the groups that "test_user" belongs to
+
+sudo usermod -aG sudo test_user
+# Adds "test_user" to the "sudo" group to grant admin privileges
+
+groups test_user
+# Checks the groups again to confirm the user was added to sudo
+
+sudo passwd test_user
+# Sets or updates the password for "test_user"
